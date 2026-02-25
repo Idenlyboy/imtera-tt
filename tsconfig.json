@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "paths": {
+      "@app/*": [
+        "./resources/js/app/*"
+      ],
+      "@entities/*": [
+        "./resources/js/entities/*"
+      ],
+      "@features/*": [
+        "./resources/js/features/*"
+      ],
+      "@shared/*": [
+        "./resources/js/shared/*"
+      ],
+      "@pages/*": [
+        "./resources/js/pages/*"
+      ],
+      "@widgets/*": [
+        "./resources/js/widgets/*"
+      ]
+    },
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+  "include": [
+    "resources/js/**/*.ts",
+    "resources/js/**/*.vue",
+    "resources/js/**/*",
+    "resources/js/**/*.d.ts",
+    "resources/js/**/*.js",
+    "resources/plugins/**/*.ts",
+  ]
+}

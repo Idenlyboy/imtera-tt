@@ -3,7 +3,8 @@
 return [
     'user' => [
         'entities' => [
-            'subjects' => ['store', 'destroy', 'getItems'],
+            'subjects' => ['store'],
+            'yandexreviews' => ['getItems'],
         ],
         'access' => 'limited',
     ],

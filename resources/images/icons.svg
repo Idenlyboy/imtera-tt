@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+  <symbol id="eye-visible" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </symbol>
+
+  <symbol id="eye-hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.77 21.77 0 0 1 5.06-6.94"/>
+    <path d="M9.9 4.24A10.94 10.94 0 0 1 12 4c7 0 11 8 11 8a21.86 21.86 0 0 1-4.23 5.94"/>
+    <line x1="1" y1="1" x2="23" y2="23"/>
+  </symbol>
+
+  <symbol id="telegram" viewBox="0 0 24 24">
+    <path fill="currentColor"
+        d="M9.04 15.47l-.38 5.33c.54 0 .78-.23 1.06-.5l2.55-2.43 5.29 3.87c.97.54 1.66.26 1.92-.9l3.48-16.33c.34-1.57-.57-2.18-1.52-1.83L1.52 9.77C.05 10.36.07 11.2 1.27 11.57l5.15 1.61 11.95-7.53c.56-.34 1.08-.15.66.2"/>
+  </symbol>
+
+  <symbol id="icon-empty" viewBox="0 0 64 64">
+    <rect x="8" y="12" width="48" height="40" rx="4" ry="4" fill="none" stroke="currentColor" stroke-width="4"/>
+    <line x1="16" y1="24" x2="48" y2="24" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+    <line x1="16" y1="32" x2="48" y2="32" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+    <line x1="16" y1="40" x2="48" y2="40" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+  </symbol>
+
+</svg>

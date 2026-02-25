@@ -3,8 +3,8 @@
 return [
     'user' => [
         'routes' => [
-            '/example/',
-            '/example/{uuid}/',
+            '/',
+            '/settings/',
         ],
         'access' => 'limited',
     ],

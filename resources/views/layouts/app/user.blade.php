@@ -1,12 +1,12 @@
 @include('layouts.head')
 
-<body class="">
+<body class="bg-gray-50 dark:bg-gray-900">
 	<main id="app">
 
 		@include('layouts.header.layout')
 		@show
 
-		<section class="">
+		<section class="flex flex-1">
 			@yield('sidebars')
 			@yield('content')
 		</section>

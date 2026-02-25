@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Dto\User\UserLoginDTO;
 use App\Dto\User\UserRegDTO;
-use Illuminate\Http\Request;
 use App\Services\AuthService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\View\View;
