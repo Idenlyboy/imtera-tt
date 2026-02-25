@@ -2,11 +2,16 @@ const mix = require('laravel-mix');
 const path = require('path');
 
 mix.js('resources/js/app/app.js', 'public/js')
-    .postCss('resources/scss/app.scss', 'public/css')
     .vue({
         version: 3,
     })
     .sass('resources/scss/app.scss', 'public/css')
+    .options({
+        postCss: [
+            require('tailwindcss'),
+            require('autoprefixer'),
+        ],
+    })
     .setPublicPath('public')
     .webpackConfig({
         stats: {
@@ -43,5 +48,3 @@ mix.js('resources/js/app/app.js', 'public/js')
     })
     .version()
     .copy('resources/images/', 'public/images/');
-
-mix.minify('public/css/app.css');

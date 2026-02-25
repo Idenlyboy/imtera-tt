@@ -17,7 +17,7 @@ class UserLoginDTO
     }
 
     /**
-     * Create DTO from UserRegRequest
+     * Create DTO from UserLoginRequest
      * @param UserLoginRequest $request
      * @return self
      */
