@@ -184,6 +184,10 @@ var perPage = 10;
     modelValue: {
       type: Object,
       required: true
+    },
+    total: {
+      type: Number,
+      required: true
     }
   },
   setup: function setup(__props, _ref) {
@@ -193,11 +197,11 @@ var perPage = 10;
     var props = __props;
     var reviews = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(_toConsumableArray(props.modelValue.reviews));
     var page = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(2);
+    var isEnd = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
     var loading = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
-    var total = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(0);
     var fetchReviews = function fetchReviews() {
       return __awaiter(_this, void 0, void 0, /*#__PURE__*/_regenerator().m(function _callee() {
-        var url, requestData, _yield$api$post, status, data, _reviews$value, paginator;
+        var _a, url, requestData, _yield$api$post, status, data, _reviews$value, paginator;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
@@ -207,54 +211,52 @@ var perPage = 10;
               }
               return _context.a(2);
             case 1:
+              if (!(reviews.value.length >= props.total)) {
+                _context.n = 2;
+                break;
+              }
+              return _context.a(2);
+            case 2:
               loading.value = true;
-              _context.p = 2;
+              _context.p = 3;
               url = _entities_subject_api_endpoints__WEBPACK_IMPORTED_MODULE_1__.subjectEndpoints.api.getItems;
               requestData = {
                 url: props.modelValue.subject.url,
                 page: page.value,
                 per_page: perPage
               };
-              _context.n = 3;
+              _context.n = 4;
               return _entities_subject_api_endpoints__WEBPACK_IMPORTED_MODULE_1__.api.post(url, requestData);
-            case 3:
+            case 4:
               _yield$api$post = _context.v;
               status = _yield$api$post.status;
               data = _yield$api$post.data;
               if (status === 200) {
                 paginator = data.data;
                 (_reviews$value = reviews.value).push.apply(_reviews$value, _toConsumableArray(paginator.data.reviews));
-                total.value = paginator.total;
                 page.value++;
+                if (((_a = paginator.data.reviews) === null || _a === void 0 ? void 0 : _a.length) === 0) {
+                  isEnd.value = true;
+                }
               }
-            case 4:
-              _context.p = 4;
-              loading.value = false;
-              return _context.f(4);
             case 5:
+              _context.p = 5;
+              loading.value = false;
+              return _context.f(5);
+            case 6:
               return _context.a(2);
           }
-        }, _callee, null, [[2,, 4, 5]]);
+        }, _callee, null, [[3,, 5, 6]]);
       }));
     };
-    var handleScroll = function handleScroll(e) {
-      var el = e.target;
-      if (el.scrollTop + el.clientHeight >= el.scrollHeight - 50) {
-        if (reviews.value.length < total.value) {
-          fetchReviews();
-        }
-      }
-    };
-    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(fetchReviews);
     var __returned__ = {
       props: props,
       reviews: reviews,
       page: page,
       perPage: perPage,
+      isEnd: isEnd,
       loading: loading,
-      total: total,
-      fetchReviews: fetchReviews,
-      handleScroll: handleScroll
+      fetchReviews: fetchReviews
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -297,7 +299,6 @@ __webpack_require__.r(__webpack_exports__);
     var __expose = _ref.expose;
     __expose();
     var props = __props;
-    console.log(props.modelValue);
     var __returned__ = {
       props: props,
       ReviewsList: _widgets_review_ReviewsList_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -383,43 +384,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
+  "class": "space-y-4"
+};
+var _hoisted_2 = {
   "class": "flex items-center mb-2"
 };
-var _hoisted_2 = ["src"];
-var _hoisted_3 = {
+var _hoisted_3 = ["src"];
+var _hoisted_4 = {
   "class": "font-semibold"
 };
-var _hoisted_4 = {
+var _hoisted_5 = {
   "class": "text-sm"
 };
-var _hoisted_5 = {
+var _hoisted_6 = {
   key: 0,
   "class": "mt-2 flex gap-2 flex-wrap"
 };
-var _hoisted_6 = ["src"];
-var _hoisted_7 = {
-  key: 0,
+var _hoisted_7 = ["src"];
+var _hoisted_8 = {
   "class": "text-center py-4"
 };
+var _hoisted_9 = ["disabled"];
+var _hoisted_10 = {
+  key: 1,
+  "class": "text-white"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-    "class": "space-y-4 h-full overflow-auto",
-    onScrollPassive: $setup.handleScroll
-  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.reviews, function (review) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.reviews, function (review) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: review.reviewId,
       "class": "bg-white shadow rounded-lg p-4"
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       src: review.author.avatarUrl.replace('{size}', 'big'),
       "class": "w-10 h-10 rounded-full mr-3"
-    }, null, 8 /* PROPS */, _hoisted_2), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(review.author.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_4, "Рейтинг: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(review.rating) + "/5", 1 /* TEXT */)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(review.text), 1 /* TEXT */), review.photos.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(review.photos, function (photo) {
+    }, null, 8 /* PROPS */, _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(review.author.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, "Рейтинг: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(review.rating) + "/5", 1 /* TEXT */)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(review.text), 1 /* TEXT */), review.photos.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(review.photos, function (photo) {
       return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
         key: photo.id,
         src: photo.urlTemplate.replace('{size}', 'M'),
         "class": "w-24 h-24 object-cover rounded"
-      }, null, 8 /* PROPS */, _hoisted_6);
+      }, null, 8 /* PROPS */, _hoisted_7);
     }), 128 /* KEYED_FRAGMENT */))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
-  }), 128 /* KEYED_FRAGMENT */)), $setup.loading ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, " Загрузка... ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 32 /* NEED_HYDRATION */);
+  }), 128 /* KEYED_FRAGMENT */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [!$setup.isEnd ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
+    key: 0,
+    onClick: $setup.fetchReviews,
+    disabled: $setup.loading,
+    "class": "px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.loading ? 'Загрузка...' : 'Показать ещё'), 9 /* TEXT, PROPS */, _hoisted_9)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_10, "Все отзывы загружены"))])]);
 }
 
 /***/ },
@@ -473,7 +483,7 @@ var _hoisted_10 = {
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return $props.modelValue ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("aside", _hoisted_2, [_cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", {
     "class": "text-lg font-semibold mb-2"
-  }, "Отзывы", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_3, "Всего: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.modelValue.reviews.length), 1 /* TEXT */), _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+  }, "Отзывы", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_3, "Всего: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.total), 1 /* TEXT */), _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
     "class": "font-semibold mb-2"
   }, "Аспекты", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.modelValue.aspects, function (aspect) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
@@ -482,8 +492,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "class": "carousel__item _align_center mx-1"
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(aspect.text), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(Math.ceil(aspect.positive / aspect.count * 100)) + "%", 1 /* TEXT */)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(aspect.count) + " отзывов", 1 /* TEXT */)])]);
   }), 128 /* KEYED_FRAGMENT */))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ReviewsList"], {
-    "model-value": $props.modelValue
-  }, null, 8 /* PROPS */, ["model-value"])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
+    "model-value": $props.modelValue,
+    total: $props.total
+  }, null, 8 /* PROPS */, ["model-value", "total"])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
 }
 
 /***/ },

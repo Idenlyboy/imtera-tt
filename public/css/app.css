@@ -586,6 +586,12 @@ video {
 .h-full {
   height: 100%;
 }
+.h-1 {
+  height: 0.25rem;
+}
+.h-\[600px\] {
+  height: 600px;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1011,6 +1017,9 @@ video {
 }
 .disabled\:opacity-60:disabled {
   opacity: 0.6;
+}
+.disabled\:opacity-50:disabled {
+  opacity: 0.5;
 }
 @media (prefers-color-scheme: dark) {
 
