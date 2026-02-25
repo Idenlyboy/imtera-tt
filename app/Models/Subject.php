@@ -26,9 +26,9 @@ class Subject extends Model
             return null;
         }
 
-        preg_match('/\/(\d+)\/reviews/', $this->url, $matches);
+        $numbersOnly = preg_replace('/\D+/', '', $this->url);
 
-        return $matches[1] ?? null;
+        return $numbersOnly;
     }
 
     public function getOwnerEntity()

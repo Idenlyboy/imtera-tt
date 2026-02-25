@@ -50,8 +50,6 @@ class YandexReviewService
             $json = $json['data'];
             $allReviews = $json['reviews'];
 
-            $total = count($allReviews);
-
             $reviews = array_slice(
                 $allReviews,
                 $offset,
@@ -60,7 +58,7 @@ class YandexReviewService
 
             $json['reviews'] = $reviews;
 
-            $json['params']['count'] = $total;
+            $total = $json['params']['count'];
         }
 
         if (!$this->workOnMockData) {

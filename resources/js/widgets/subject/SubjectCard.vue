@@ -6,7 +6,6 @@ const props = defineProps<{
     modelValue: SubjectData | null;
     total: number | null;
 }>();
-console.log(props.modelValue);
 
 </script>
 
@@ -15,7 +14,7 @@ console.log(props.modelValue);
 
         <aside class="w-80 p-4 border-r bg-gray-900 text-white flex flex-col">
             <h3 class="text-lg font-semibold mb-2">Отзывы</h3>
-            <p class="text-sm mb-4">Всего: {{ modelValue.reviews.length }}</p>
+            <p class="text-sm mb-4">Всего: {{ total }}</p>
 
             <h4 class="font-semibold mb-2">Аспекты</h4>
 
@@ -37,7 +36,7 @@ console.log(props.modelValue);
         </aside>
 
         <div class="flex-1 p-4 overflow-auto">
-            <ReviewsList :model-value="modelValue" />
+            <ReviewsList :model-value="modelValue" :total="total" />
         </div>
 
     </div>
