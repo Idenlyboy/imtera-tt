@@ -20492,6 +20492,24 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ },
 
+/***/ "./resources/js/features/auth/index.js"
+/*!*********************************************!*\
+  !*** ./resources/js/features/auth/index.js ***!
+  \*********************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   modules: () => (/* binding */ modules)
+/* harmony export */ });
+var modules = [{
+  name: 'logout-btn',
+  path: 'features/auth/LogoutBtn.vue'
+}];
+
+/***/ },
+
 /***/ "./resources/js/pages/auth/index.js"
 /*!******************************************!*\
   !*** ./resources/js/pages/auth/index.js ***!
@@ -20513,10 +20531,10 @@ var modules = [{
 
 /***/ },
 
-/***/ "./resources/js/shared/ui/index.js"
-/*!*****************************************!*\
-  !*** ./resources/js/shared/ui/index.js ***!
-  \*****************************************/
+/***/ "./resources/js/pages/subject/index.js"
+/*!*********************************************!*\
+  !*** ./resources/js/pages/subject/index.js ***!
+  \*********************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20525,8 +20543,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   modules: () => (/* binding */ modules)
 /* harmony export */ });
 var modules = [{
-  name: 'logout-btn',
-  path: 'shared/ui/LogoutBtn.vue'
+  name: 'subject-tabs',
+  path: 'pages/subject/SubjectTabs.vue'
+}, {
+  name: 'subject-create',
+  path: 'pages/subject/CreateForm.vue'
 }];
 
 /***/ },
@@ -23091,17 +23112,31 @@ module.exports = webpackEmptyContext;
 /*!**************************************************!*\
   !*** ./resources/js/features/ sync \/index\.js$ ***!
   \**************************************************/
-(module) {
+(module, __unused_webpack_exports, __webpack_require__) {
 
-function webpackEmptyContext(req) {
-	var e = new Error("Cannot find module '" + req + "'");
-	e.code = 'MODULE_NOT_FOUND';
-	throw e;
+var map = {
+	"./auth/index.js": "./resources/js/features/auth/index.js"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
 }
-webpackEmptyContext.keys = () => ([]);
-webpackEmptyContext.resolve = webpackEmptyContext;
-webpackEmptyContext.id = "./resources/js/features sync recursive \\/index\\.js$";
-module.exports = webpackEmptyContext;
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./resources/js/features sync recursive \\/index\\.js$";
 
 /***/ },
 
@@ -23112,7 +23147,8 @@ module.exports = webpackEmptyContext;
 (module, __unused_webpack_exports, __webpack_require__) {
 
 var map = {
-	"./auth/index.js": "./resources/js/pages/auth/index.js"
+	"./auth/index.js": "./resources/js/pages/auth/index.js",
+	"./subject/index.js": "./resources/js/pages/subject/index.js"
 };
 
 
@@ -23141,31 +23177,17 @@ webpackContext.id = "./resources/js/pages sync recursive \\/index\\.js$";
 /*!************************************************!*\
   !*** ./resources/js/shared/ sync \/index\.js$ ***!
   \************************************************/
-(module, __unused_webpack_exports, __webpack_require__) {
+(module) {
 
-var map = {
-	"./ui/index.js": "./resources/js/shared/ui/index.js"
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	return __webpack_require__(id);
+function webpackEmptyContext(req) {
+	var e = new Error("Cannot find module '" + req + "'");
+	e.code = 'MODULE_NOT_FOUND';
+	throw e;
 }
-function webpackContextResolve(req) {
-	if(!__webpack_require__.o(map, req)) {
-		var e = new Error("Cannot find module '" + req + "'");
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return map[req];
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "./resources/js/shared sync recursive \\/index\\.js$";
+webpackEmptyContext.keys = () => ([]);
+webpackEmptyContext.resolve = webpackEmptyContext;
+webpackEmptyContext.id = "./resources/js/shared sync recursive \\/index\\.js$";
+module.exports = webpackEmptyContext;
 
 /***/ },
 
@@ -23266,6 +23288,68 @@ var map = {
 			"resources_js_entities_auth_interfaces_app_interface_ts"
 		]
 	],
+	"./entities/subject/api/endpoints": [
+		"./resources/js/entities/subject/api/endpoints.ts",
+		9,
+		[
+			"resources_js_entities_subject_api_endpoints_ts"
+		]
+	],
+	"./entities/subject/api/endpoints.ts": [
+		"./resources/js/entities/subject/api/endpoints.ts",
+		9,
+		[
+			"resources_js_entities_subject_api_endpoints_ts"
+		]
+	],
+	"./entities/subject/interfaces/subject.interface": [
+		"./resources/js/entities/subject/interfaces/subject.interface.ts",
+		9,
+		[
+			"resources_js_entities_subject_interfaces_subject_interface_ts"
+		]
+	],
+	"./entities/subject/interfaces/subject.interface.ts": [
+		"./resources/js/entities/subject/interfaces/subject.interface.ts",
+		9,
+		[
+			"resources_js_entities_subject_interfaces_subject_interface_ts"
+		]
+	],
+	"./features/auth": [
+		"./resources/js/features/auth/index.js",
+		9,
+		[]
+	],
+	"./features/auth/": [
+		"./resources/js/features/auth/index.js",
+		9,
+		[]
+	],
+	"./features/auth/LogoutBtn": [
+		"./resources/js/features/auth/LogoutBtn.vue",
+		9,
+		[
+			"resources_js_features_auth_LogoutBtn_vue"
+		]
+	],
+	"./features/auth/LogoutBtn.vue": [
+		"./resources/js/features/auth/LogoutBtn.vue",
+		9,
+		[
+			"resources_js_features_auth_LogoutBtn_vue"
+		]
+	],
+	"./features/auth/index": [
+		"./resources/js/features/auth/index.js",
+		9,
+		[]
+	],
+	"./features/auth/index.js": [
+		"./resources/js/features/auth/index.js",
+		9,
+		[]
+	],
 	"./index.d": [
 		"./resources/js/index.d.ts",
 		7,
@@ -23328,6 +23412,54 @@ var map = {
 		9,
 		[]
 	],
+	"./pages/subject": [
+		"./resources/js/pages/subject/index.js",
+		9,
+		[]
+	],
+	"./pages/subject/": [
+		"./resources/js/pages/subject/index.js",
+		9,
+		[]
+	],
+	"./pages/subject/CreateForm": [
+		"./resources/js/pages/subject/CreateForm.vue",
+		9,
+		[
+			"resources_js_pages_subject_CreateForm_vue"
+		]
+	],
+	"./pages/subject/CreateForm.vue": [
+		"./resources/js/pages/subject/CreateForm.vue",
+		9,
+		[
+			"resources_js_pages_subject_CreateForm_vue"
+		]
+	],
+	"./pages/subject/SubjectTabs": [
+		"./resources/js/pages/subject/SubjectTabs.vue",
+		9,
+		[
+			"resources_js_pages_subject_SubjectTabs_vue"
+		]
+	],
+	"./pages/subject/SubjectTabs.vue": [
+		"./resources/js/pages/subject/SubjectTabs.vue",
+		9,
+		[
+			"resources_js_pages_subject_SubjectTabs_vue"
+		]
+	],
+	"./pages/subject/index": [
+		"./resources/js/pages/subject/index.js",
+		9,
+		[]
+	],
+	"./pages/subject/index.js": [
+		"./resources/js/pages/subject/index.js",
+		9,
+		[]
+	],
 	"./shared/api/endpoints": [
 		"./resources/js/shared/api/endpoints.ts",
 		9,
@@ -23354,6 +23486,20 @@ var map = {
 		9,
 		[
 			"resources_js_shared_config_constants_ts"
+		]
+	],
+	"./shared/interfaces/paginator.interface": [
+		"./resources/js/shared/interfaces/paginator.interface.ts",
+		9,
+		[
+			"resources_js_shared_interfaces_paginator_interface_ts"
+		]
+	],
+	"./shared/interfaces/paginator.interface.ts": [
+		"./resources/js/shared/interfaces/paginator.interface.ts",
+		9,
+		[
+			"resources_js_shared_interfaces_paginator_interface_ts"
 		]
 	],
 	"./shared/services/declensionService": [
@@ -23398,16 +23544,6 @@ var map = {
 			"resources_js_shared_services_notifyService_ts"
 		]
 	],
-	"./shared/ui": [
-		"./resources/js/shared/ui/index.js",
-		9,
-		[]
-	],
-	"./shared/ui/": [
-		"./resources/js/shared/ui/index.js",
-		9,
-		[]
-	],
 	"./shared/ui/InputEmail": [
 		"./resources/js/shared/ui/InputEmail.vue",
 		9,
@@ -23450,29 +23586,33 @@ var map = {
 			"resources_js_shared_ui_InputText_vue"
 		]
 	],
-	"./shared/ui/LogoutBtn": [
-		"./resources/js/shared/ui/LogoutBtn.vue",
+	"./widgets/review/ReviewsList": [
+		"./resources/js/widgets/review/ReviewsList.vue",
 		9,
 		[
-			"resources_js_shared_ui_LogoutBtn_vue"
+			"resources_js_widgets_review_ReviewsList_vue"
 		]
 	],
-	"./shared/ui/LogoutBtn.vue": [
-		"./resources/js/shared/ui/LogoutBtn.vue",
+	"./widgets/review/ReviewsList.vue": [
+		"./resources/js/widgets/review/ReviewsList.vue",
 		9,
 		[
-			"resources_js_shared_ui_LogoutBtn_vue"
+			"resources_js_widgets_review_ReviewsList_vue"
 		]
 	],
-	"./shared/ui/index": [
-		"./resources/js/shared/ui/index.js",
+	"./widgets/subject/SubjectCard": [
+		"./resources/js/widgets/subject/SubjectCard.vue",
 		9,
-		[]
+		[
+			"resources_js_widgets_subject_SubjectCard_vue"
+		]
 	],
-	"./shared/ui/index.js": [
-		"./resources/js/shared/ui/index.js",
+	"./widgets/subject/SubjectCard.vue": [
+		"./resources/js/widgets/subject/SubjectCard.vue",
 		9,
-		[]
+		[
+			"resources_js_widgets_subject_SubjectCard_vue"
+		]
 	]
 };
 function webpackAsyncContext(req) {
@@ -38440,7 +38580,7 @@ function storeToRefs(store) {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_entities_app_interfaces_app_interface_ts":1,"resources_js_entities_auth_api_endpoints_ts":1,"resources_js_entities_auth_interfaces_app_interface_ts":1,"resources_js_index_d_ts":1,"resources_js_pages_auth_LoginForm_vue":1,"resources_js_pages_auth_RegForm_vue":1,"resources_js_shared_api_endpoints_ts":1,"resources_js_shared_config_constants_ts":1,"resources_js_shared_services_declensionService_ts":1,"resources_js_shared_services_imageService_ts":1,"resources_js_shared_services_notifyService_ts":1,"resources_js_shared_ui_InputEmail_vue":1,"resources_js_shared_ui_InputPass_vue":1,"resources_js_shared_ui_InputText_vue":1,"resources_js_shared_ui_LogoutBtn_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_entities_app_interfaces_app_interface_ts":1,"resources_js_entities_auth_api_endpoints_ts":1,"resources_js_entities_auth_interfaces_app_interface_ts":1,"resources_js_entities_subject_api_endpoints_ts":1,"resources_js_entities_subject_interfaces_subject_interface_ts":1,"resources_js_features_auth_LogoutBtn_vue":1,"resources_js_index_d_ts":1,"resources_js_pages_auth_LoginForm_vue":1,"resources_js_pages_auth_RegForm_vue":1,"resources_js_pages_subject_CreateForm_vue":1,"resources_js_pages_subject_SubjectTabs_vue":1,"resources_js_shared_api_endpoints_ts":1,"resources_js_shared_config_constants_ts":1,"resources_js_shared_interfaces_paginator_interface_ts":1,"resources_js_shared_services_declensionService_ts":1,"resources_js_shared_services_imageService_ts":1,"resources_js_shared_services_notifyService_ts":1,"resources_js_shared_ui_InputEmail_vue":1,"resources_js_shared_ui_InputPass_vue":1,"resources_js_shared_ui_InputText_vue":1,"resources_js_widgets_review_ReviewsList_vue":1,"resources_js_widgets_subject_SubjectCard_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

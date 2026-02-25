@@ -10,6 +10,9 @@ return Application::configure(basePath: dirname(__DIR__))
         web: __DIR__ . '/../routes/web.php',
         api: __DIR__ . '/../routes/api.php',
         health: '/up',
+        then: function () {
+            Route::pattern('id', '[0-9]+');
+        }
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->append(StartSession::class);
