@@ -2,6 +2,7 @@
 
 namespace App\Dto\Subject;
 
+use App\Exceptions\ServerException;
 use App\Http\Requests\SubjectCreateRequest;
 
 class SubjectCreateDTO
@@ -25,6 +26,11 @@ class SubjectCreateDTO
         $data = $request->validated();
 
         $data['user_id'] = session('user_id');
+        $numbersOnly = preg_replace('/\D+/', '', $data['url']);
+
+        if (empty($numbersOnly)) {
+            throw new ServerException('Неподходящий формат ссылки!');
+        }
 
         return new self($data);
     }

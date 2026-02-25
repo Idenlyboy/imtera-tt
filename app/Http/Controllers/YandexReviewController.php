@@ -28,6 +28,10 @@ class YandexReviewController extends Controller
         $subject = Subject::where('url', $url)->firstOrFail();
         $businessID = $subject->yandex_business_id;
 
+        if (!$businessID) {
+            $this->notice(500, 'Не удалось получить ID бизнеса!');
+        }
+
         $dto = new ReviewsFetchDTO([
             'businessId' => $businessID,
             'page' => $page,
